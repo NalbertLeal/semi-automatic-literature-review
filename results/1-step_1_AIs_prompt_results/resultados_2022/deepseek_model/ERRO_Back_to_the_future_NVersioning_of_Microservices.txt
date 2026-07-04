@@ -1,0 +1,8 @@
+{
+"chain_of_thought_analysis": "The paper's title and abstract focus on microservices architecture for internet-scale applications (Distributed Systems). The primary contribution is RDDR, an approach using N-versioning to improve resilience against data leaks by applying diversity and redundancy. This directly addresses dependability/resilience as a major research goal, not just tangential topics like security or energy efficiency. There's no mention of hardware-level fault tolerance or non-primary study types.",
+"identified_domains": ["Distributed Systems", "Cloud Computing"],
+"fault_tolerance_evidence": "Our evaluation demonstrates RDDR mitigating vulnerabilities... by applying diversity and redundancy to individual microservices.",
+"exclusion_reason": null,
+"confidence_score": 1.0,
+"final_label": "VALID"
+}

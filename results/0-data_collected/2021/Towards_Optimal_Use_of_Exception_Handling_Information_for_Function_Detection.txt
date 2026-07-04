@@ -1,0 +1,44 @@
+Role: You are a Senior Computer Science Researcher and an expert in Distributed Systems and Dependability.
+
+Task: Your objective is to act as a rigorous screening assistant for a systematic literature review. You will analyze the [TITLE], [ABSTRACT], and [KEYWORDS] of a paper published at the DSN (Dependable Systems and Networks) conference and classify it as VALID, INVALID, or UNCERTAIN based on strict inclusion and exclusion criteria.
+
+INCLUSION CRITERIA (ALL must be satisfied):
+1. Target Domain (Intersection Required):
+The paper MUST be primarily about Distributed Systems. Additionally, the distributed system's context or application MUST strictly fall into at least one of these specific domains:
+- Wireless Sensor Networks (WSN)
+- Internet of Things (IoT)
+- Blockchain Systems
+- Cyber-Physical Systems (CPS)
+- Cloud Computing
+- Data Centers
+- High-Performance Computing (HPC)
+- P2P networks
+2. Fault Tolerance Focus:
+Fault tolerance or dependability MUST be a major and explicit research contribution, proposed method, or primary evaluation focus. The paper must substantially address topics such as: Fault Tolerance, Dependability, Reliability, Availability, Resilience, Failure Detection/Recovery, Byzantine Fault Tolerance (BFT), Replication, Checkpointing, Redundancy, Self-Healing, or Crash Recovery.
+(Papers mentioning fault tolerance only as motivation, background, or future work do not meet this criterion).
+3. Study Type:
+The paper must be a primary research study (proposing a method, framework, algorithm, or empirical evaluation).
+
+EXCLUSION CRITERIA (If ANY match, classify as INVALID):
+1. Hardware-Level Only: The fault tolerance approach is exclusively focused on low-level hardware (e.g., bit flips, radiation on chips) without a distributed system/network level approach.
+2. Non-Primary Studies: The paper is a Survey, Systematic Literature Review (SLR), or Review.
+3. Tangential Focus: The primary focus is strictly on Energy Efficiency, Routing Protocols, pure Telecommunications, Data Analytics, Artificial Intelligence, or Security/Privacy, UNLESS fault tolerance is explicitly proven to be the major co-contribution.
+
+MANDATORY UNCERTAINTY RULE (CRITICAL):
+If the abstract lacks sufficient detail, uses ambiguous language, or if you cannot reach ABSOLUTE CERTAINTY regarding the acceptance or rejection of the paper based on the criteria above, you MUST output "UNCERTAIN" as the final_label. Do NOT guess, infer missing data, or make assumptions. When in doubt, your default action must be UNCERTAIN.
+
+INPUT DATA (the paper to analyse):
+[TITLE]: Towards Optimal Use of Exception Handling Information for Function Detection
+[ABSTRACT]: Function entry detection is critical for security of binary code. Conventional methods heavily rely on patterns, inevitably missing true functions and introducing errors. Recently, call frames have been used in exception-handling for function start detection. However, existing methods have two problems. First, they combine call frames with heuristic-based approaches, which often brings error and uncertain benefits. Second, they trust the fidelity of call frames, without handling the errors that are introduced by call frames. In this paper, we first study the coverage and accuracy of existing approaches in detecting function starts using call frames. We found that although recursive disassembly with call frames can maximize coverage, using extra heuristic-based approaches does not improve coverage and actually hurts accuracy. Second, we unveil call-frame errors and develop the first approach to fix them, making their use more reliable.
+
+OUTPUT FORMAT:
+You must return ONLY a valid JSON object. Do not include markdown formatting like ```json or any conversational text. The JSON must strictly follow this structure:
+
+{
+"chain_of_thought_analysis": "Write 3 to 4 sentences reasoning step-by-step. 1. Identify domain fit. 2. Analyze fault tolerance contribution. 3. Check exclusions. 4. Explicitly state whether the text provides enough information to be absolutely certain of the decision.",
+"identified_domains": ["List the matched domains, e.g., Distributed Systems, IoT"],
+"fault_tolerance_evidence": "Quote a short phrase from the abstract that proves fault tolerance is a major contribution, or write 'None' if absent.",
+"exclusion_reason": "If rejected, state the exact exclusion criterion met. If accepted or uncertain, write null.",
+"confidence_score": "0.0 to 1.0. IMPORTANT: If this score is less than 0.80, the final_label below MUST be UNCERTAIN.",
+"final_label": "VALID | INVALID | UNCERTAIN"
+}

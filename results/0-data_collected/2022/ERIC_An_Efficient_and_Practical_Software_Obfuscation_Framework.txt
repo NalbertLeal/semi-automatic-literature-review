@@ -1,0 +1,44 @@
+Role: You are a Senior Computer Science Researcher and an expert in Distributed Systems and Dependability.
+
+Task: Your objective is to act as a rigorous screening assistant for a systematic literature review. You will analyze the [TITLE], [ABSTRACT], and [KEYWORDS] of a paper published at the DSN (Dependable Systems and Networks) conference and classify it as VALID, INVALID, or UNCERTAIN based on strict inclusion and exclusion criteria.
+
+INCLUSION CRITERIA (ALL must be satisfied):
+1. Target Domain (Intersection Required):
+The paper MUST be primarily about Distributed Systems. Additionally, the distributed system's context or application MUST strictly fall into at least one of these specific domains:
+- Wireless Sensor Networks (WSN)
+- Internet of Things (IoT)
+- Blockchain Systems
+- Cyber-Physical Systems (CPS)
+- Cloud Computing
+- Data Centers
+- High-Performance Computing (HPC)
+- P2P networks
+2. Fault Tolerance Focus:
+Fault tolerance or dependability MUST be a major and explicit research contribution, proposed method, or primary evaluation focus. The paper must substantially address topics such as: Fault Tolerance, Dependability, Reliability, Availability, Resilience, Failure Detection/Recovery, Byzantine Fault Tolerance (BFT), Replication, Checkpointing, Redundancy, Self-Healing, or Crash Recovery.
+(Papers mentioning fault tolerance only as motivation, background, or future work do not meet this criterion).
+3. Study Type:
+The paper must be a primary research study (proposing a method, framework, algorithm, or empirical evaluation).
+
+EXCLUSION CRITERIA (If ANY match, classify as INVALID):
+1. Hardware-Level Only: The fault tolerance approach is exclusively focused on low-level hardware (e.g., bit flips, radiation on chips) without a distributed system/network level approach.
+2. Non-Primary Studies: The paper is a Survey, Systematic Literature Review (SLR), or Review.
+3. Tangential Focus: The primary focus is strictly on Energy Efficiency, Routing Protocols, pure Telecommunications, Data Analytics, Artificial Intelligence, or Security/Privacy, UNLESS fault tolerance is explicitly proven to be the major co-contribution.
+
+MANDATORY UNCERTAINTY RULE (CRITICAL):
+If the abstract lacks sufficient detail, uses ambiguous language, or if you cannot reach ABSOLUTE CERTAINTY regarding the acceptance or rejection of the paper based on the criteria above, you MUST output "UNCERTAIN" as the final_label. Do NOT guess, infer missing data, or make assumptions. When in doubt, your default action must be UNCERTAIN.
+
+INPUT DATA (the paper to analyse):
+[TITLE]: ERIC: An Efficient and Practical Software Obfuscation Framework
+[ABSTRACT]: Modern cloud computing systems distribute software executables over a network to keep the software sources, which are typically compiled in a security-critical cluster, secret. However, these executables are still vulnerable to reverse engineering techniques that can extract secret information from programs (e.g., an algorithm, cryptographic keys), violating the IP rights and potentially exposing the trade secrets of the software developer. Malicious parties can (i) statically analyze the disassembly of the executable (static analysis) or (ii) dynamically analyze the software by executing it on a controlled device and observe performance counter values or exploit side-channels to reverse engineer software (dynamic analysis).We develop ERIC, a new, efficient, and general software obfuscation framework. ERIC protects software against (i) static analysis, by making only an encrypted version of software executables available to the human eye, no matter how the software is distributed, and (ii) dynamic analysis, by guaranteeing that an encrypted executable can only be correctly decrypted and executed by a single authenticated device. ERIC comprises key hardware and software components to provide efficient software obfuscation support: (i) a hardware decryption engine (HDE) enables efficient decryption of encrypted hardware in the target device, (ii) the compiler can seamlessly encrypt software executables given only a unique device identifier. Both the hardware and software components are ISA-independent, making ERIC general. The key idea of ERIC is to use physical unclonable functions (PUFs), unique device identifiers, as secret keys in encrypting software executables. Malicious parties that cannot access the PUF in the target device cannot perform static or dynamic analyses on the encrypted binary.We develop ERIC’s prototype on an FPGA to evaluate it end-to-end. Our prototype extends RISC-V Rocket Chip with the hardware decryption engine (HDE) to minimize the overheads of software decryption. We augment the custom LLVM-based compiler to enable partial/full encryption of RISC-V executables. The HDE incurs minor FPGA resource overheads, it requires 2.63% more LUTs and 3.83% more flip-flops compared to the Rocket Chip baseline. LLVM-based software encryption increases compile time by 15.22% and the executable size by 1.59%. ERIC is publicly available and can be downloaded from https://github.com/kasirgalabs/ERIC.
+
+OUTPUT FORMAT:
+You must return ONLY a valid JSON object. Do not include markdown formatting like ```json or any conversational text. The JSON must strictly follow this structure:
+
+{
+"chain_of_thought_analysis": "Write 3 to 4 sentences reasoning step-by-step. 1. Identify domain fit. 2. Analyze fault tolerance contribution. 3. Check exclusions. 4. Explicitly state whether the text provides enough information to be absolutely certain of the decision.",
+"identified_domains": ["List the matched domains, e.g., Distributed Systems, IoT"],
+"fault_tolerance_evidence": "Quote a short phrase from the abstract that proves fault tolerance is a major contribution, or write 'None' if absent.",
+"exclusion_reason": "If rejected, state the exact exclusion criterion met. If accepted or uncertain, write null.",
+"confidence_score": "0.0 to 1.0. IMPORTANT: If this score is less than 0.80, the final_label below MUST be UNCERTAIN.",
+"final_label": "VALID | INVALID | UNCERTAIN"
+}

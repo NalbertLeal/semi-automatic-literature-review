@@ -1,0 +1,7 @@
+[
+  'ZeroInterference_Containers_A_Framework_to_Orchestrate_MixedCriticality_Applications.txt',
+  'Faster_Hashbased_Multivalued_Validated_Asynchronous_Byzantine_Agreement.txt',
+  'ParaVerser_Harnessing_Heterogeneous_Parallelism_for_Affordable_Fault_Detection_in_Data_Centers.txt',
+  'Mitigating_FrontRunning_Attacks_through_Fair_and_Resilient_Transaction_Dissemination.txt',
+  'ReCraft_SelfContained_Split_Merge_and_Membership_Change_of_Raft_Protocol.txt'
+]

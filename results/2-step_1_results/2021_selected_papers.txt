@@ -1,0 +1,7 @@
+[
+  'Revealing_GPUs_Vulnerabilities_by_Combining_RegisterTransfer_and_SoftwareLevel_Fault_Injection.txt',
+  'FIRestarter_Practical_Software_Crash_Recovery_with_Targeted_Librarylevel_Fault_Injection.txt',
+  'Toward_Intrusion_Tolerance_as_a_Service_Confidentiality_in_Partially_CloudBased_BFT_Systems.txt',
+  'A_Lowcost_Fault_Corrector_for_Deep_Neural_Networks_through_Range_Restriction.txt',
+  'Sentiment_Analysis_based_Error_Detection_for_LargeScale_Systems.txt'
+]

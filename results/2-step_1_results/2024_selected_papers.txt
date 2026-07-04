@@ -1,0 +1,12 @@
+[
+  'Decentagram_HighlyAvailable_Decentralized_PublishSubscribe_Systems.txt',
+  'Mutiny_How_Does_Kubernetes_Fail_and_What_Can_We_Do_About_It.txt',
+  'Iniva_Inclusive_and_IncentiveCompatible_Vote_Aggregation.txt',
+  'Intrusion_Tolerance_for_Networked_Systems_through_TwoLevel_Feedback_Control.txt',
+  'SyRep_Efficient_Synthesis_and_Repair_of_Fast_ReRoute_Forwarding_Tables_for_Resilient_Networks.txt',
+  'Moonshot_Optimizing_Block_Period_and_Commit_Latency_in_ChainBased_Rotating_Leader_BFT.txt',
+  'Delphi_Efficient_Asynchronous_Approximate_Agreement_for_Distributed_Oracles.txt',
+  'RebootBased_Recovery_of_Unikernels_at_the_Component_Level.txt',
+  'Verifying_Randomized_Consensus_Protocols_with_Common_Coins.txt',
+  'ZLB_A_Blockchain_to_Tolerate_Colluding_Majorities.txt'
+]

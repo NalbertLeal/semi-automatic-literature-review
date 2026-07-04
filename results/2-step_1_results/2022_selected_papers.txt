@@ -1,0 +1,9 @@
+[
+  'CAROL_ConfidenceAware_Resilience_Model_for_Edge_Federations.txt',
+  'ZugChain_BlockchainBased_Juridical_Data_Recording_in_Railway_Systems.txt',
+  'ComFASE_A_Tool_for_Evaluating_the_Effects_of_V2V_Communication_Faults_and_Attacks_on_Automated_Vehicles.txt',
+  'Exploiting_Temporal_Data_Diversity_for_Detecting_Safetycritical_Faults_in_AV_Compute_Systems.txt',
+  'Marlin_TwoPhase_BFT_with_Linearity.txt',
+  'Hardening_Inmemory_Keyvalue_Stores_against_ECCuncorrectable_Memory_Errors.txt',
+  'Treaty_Secure_Distributed_Transactions.txt'
+]
