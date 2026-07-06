@@ -1,0 +1,16 @@
+{
+"chain_of_thought_evaluation": {
+"Q1_analysis": "The paper explicitly states in Section VI (Implementation) that the authors implemented their protocols by modifying the code for Jolteon available in the NarwhalHotStuff branch of a public GitHub repository ([32]). However, it does not provide a direct link to a new repository containing the Moonshot-specific source code or datasets.",
+"Q2_analysis": "The evaluation was conducted using real physical hardware (AWS EC2 instances) distributed across multiple wide-area network regions (us-east-1, us-west-1, etc.), connected via point-to-point links. This constitutes a physical testbed deployment rather than just simulation.",
+"Q3_analysis": "Section II (Preliminaries) contains a dedicated subsection defining the system model and assumptions. It explicitly defines the adversary as static, computationally bounded, corrupting up to f < n/3 nodes, operating in a partially synchronous network with GST, and using authenticated channels. This meets the criteria for a formal fault/threat model.",
+"Q4_analysis": "Section VI provides extensive data-driven analysis of trade-offs. It quantifies throughput increases (e.g., 1.5x), latency reductions (e.g., half the latency), and explicitly analyzes the impact of payload size on communication complexity versus performance, noting when pipelining becomes inefficient due to large block sizes."
+},
+"scores": {
+"Q1_reproducibility": 1,
+"Q2_experimental_rigor": 2,
+"Q3_fault_model": 2,
+"Q4_tradeoffs": 2
+},
+"total_quality_score": "7",
+"major_weakness": "The paper lacks a direct public link to the specific source code implementation of the Moonshot protocols, relying only on a description of modifications made to an external repository."
+}

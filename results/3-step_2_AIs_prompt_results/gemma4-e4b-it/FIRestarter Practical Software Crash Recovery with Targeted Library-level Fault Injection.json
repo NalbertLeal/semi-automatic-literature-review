@@ -1,0 +1,16 @@
+{
+"chain_of_thought_evaluation": {
+"Q1_analysis": "The paper explicitly states: \"Our full FIRestarter prototype implementation is open source and available at https://github.com/vusec/firestarter.\" This provides a working link to the code repository.",
+"Q2_analysis": "The evaluation uses real-world applications (Nginx, Apache, Lighttpd) running their standard test suite workloads on physical hardware (Intel i7-6700K). Furthermore, it involves instrumentation and testing against production bugs. This qualifies as using physical testbeds/real deployments.",
+"Q3_analysis": "The paper has a dedicated section titled 'II. FAULT MODEL' where it explicitly states: \"With our focus on survivability of applications, we assume a fail-stop fault model (even for persistent hardware faults) like most of the research in the area [19]-[21]...\" This is a clear and formal definition.",
+"Q4_analysis": "The paper provides rigorous, data-driven analysis of trade-offs. It quantifies performance overheads (e.g., \"low performance overhead of at most 17%\" on Nginx) and analyzes the impact of different adaptive policies on throughput degradation (Figure 3), comparing FIRestarter against STM-only and HTM-only approaches."
+},
+"scores": {
+"Q1_reproducibility": 2,
+"Q2_experimental_rigor": 2,
+"Q3_fault_model": 2,
+"Q4_tradeoffs": 2
+},
+"total_quality_score": 8,
+"major_weakness": "The paper is exceptionally strong across all metrics; the lowest score was tied at Q1 (if we consider that providing a link to code/data is sufficient for 2 points, which it is)."
+}
